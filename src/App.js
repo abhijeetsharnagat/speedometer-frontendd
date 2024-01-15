@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://speedometer-backend.onrender.com/api/speed');
+        const response = await axios.get('http://localhost:3001/api/speed');
         const latestSpeed = response.data[0]?.speed || 0;
         setSpeed(latestSpeed);
         setSpeedData(response.data);
@@ -23,7 +23,7 @@ function App() {
 
   const handleUpdateSpeed = async (newSpeed) => {
     try {
-      await axios.post('https://speedometer-backend.onrender.com/api/speed', { speed: newSpeed });
+      await axios.post('http://localhost:3001/api/speed', { speed: newSpeed });
       setSpeed(newSpeed);
       localStorage.setItem('speed', newSpeed.toString());
     } catch (error) {
@@ -43,9 +43,9 @@ function App() {
 
   const handleStoreSpeed = async () => {
     try {
-      await axios.post('https://speedometer-backend.onrender.com/api/speed', { speed });
+      await axios.post('http://localhost:3001/api/speed', { speed });
       // Refresh speed data after storing
-      const response = await axios.get('https://speedometer-backend.onrender.com/api/speed');
+      const response = await axios.get('http://localhost:3001/api/speed');
       setSpeedData(response.data);
     } catch (error) {
       console.error('Error storing speed:', error);
