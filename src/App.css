@@ -75,6 +75,15 @@ table {
 }
 
 th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #555;
+  color: #ffffff;
+}
 
 td {
   background-color: #444;
